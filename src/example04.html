@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./stylesheets/example04.css">
-  <title>Example 04</title>
-</head>
-<body>
-  <!-- TODO: Example 04 (Activity 5) HTML goes here -->
-  <p>Activity 5 coming soon</p>
-  <script type="module" src="./javascripts/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/example04.css" />
+    <title>Activity 5_Grid Layout</title>
+  </head>
+  <body>
+    <!-- TODO: Example 04 (Activity 5) HTML goes here -->
+    <div class="centered"><p>Activity 5- Grid Layout</p></div>
+
+    <div class="portfolio">
+      <figure class="featured">
+        <!-- Each <figure> will be a grid item. -->
+        <img src="images/monkey.jpg" alt="monkey" />
+        <figcaption>Monkey</figcaption>
+      </figure>
+      <figure>
+        <img src="images/eagle.jpg" alt="eagle" />
+        <!--Encloses the image and its caption inside the <figure> element -->
+        <figcaption>Eagle</figcaption>
+        <!--Encloses the image and its caption inside the <figure> element -->
+      </figure>
+      <figure class="featured">
+        <!-- The featured class will make certain images larger. -->
+        <img src="images/bird.jpg" alt="bird" class="bird" />
+        <figcaption>Bird</figcaption>
+      </figure>
+      <figure>
+        <img src="images/bear.jpg" alt="bear" />
+        <figcaption>Bear</figcaption>
+      </figure>
+      <figure class="featured">
+        <!-- The featured class will make certain images larger. -->
+        <img src="images/swan.jpg" alt="swan" />
+        <figcaption>Swan</figcaption>
+      </figure>
+      <figure>
+        <img src="images/elephants.jpg" alt="elephants" />
+        <figcaption>Elephants</figcaption>
+      </figure>
+      <figure>
+        <img src="images/owl.jpg" alt="owl" />
+        <figcaption>Owl</figcaption>
+      </figure>
+    </div>
+    <script type="module" src="./javascripts/main.js"></script>
+  </body>
 </html>

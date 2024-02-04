@@ -1,1 +1,72 @@
 /* TODO: Example 04 (Activity 5) CSS goes here */
+.centered {
+  text-align: center;
+  background-color: aliceblue;
+  padding: 1em 2em;
+  margin: 0;
+}
+body {
+  background-color: #709b90;
+  font-family: Helvetica, Arial, sans-serif;
+}
+/* *********THis is the default style if the browser does NOT support Grid layout********** */
+.portfolio > figure {
+  display: inline-block; /* Uses inline-block for the fallback layout */
+  max-width: 300px; /* Uses inline-block for the fallback layout */
+  margin: 0;
+}
+
+.portfolio img {
+  max-width: 100%;
+  object-fit: cover;
+}
+.bird {
+  object-fit: none;
+  object-position: 80% 50%;
+}
+
+.portfolio figcaption {
+  padding: 0.3em 0.8em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: right;
+}
+/* This is the    FEATURE QUERY BLOCK for grid support. 
+  This style applies only if the browser supports grid layout */
+@supports (display: grid) {
+  .portfolio {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); /* Sets a minimum column width of 200 px and auto-fills the grid */
+    grid-auto-rows: 1fr; /* Sets an implicit horizontal grid track size of 1 fr */
+    grid-gap: 1em;
+    grid-auto-flow: dense; /*  Using a dense auto-flow allows the browser to fill in gaps neatly. */
+  }
+  /* you’ll make each <figure> a flex container with a direction of column so items stack vertically, atop one another. You can then apply a flex grow to the image, forcing it to stretch to fill the space. */
+  .portfolio > figure {
+    margin: 0; /* Overrides user agent margins */
+    display: flex;
+    flex-direction: column;
+    max-width: initial; /* Overrides fallback styles */
+  }
+  /* There’s an important distinction to make here: there is the box (determined by the <img> element’s height and width), and there is the rendered image. By default, these are the same size. The object-fit property lets you manipulate the size of the rendered image within that box, but the size of the box itself remains unchanged.
+  Because you’ll use the flex-grow property to stretch the images, you should also apply object-fit: cover to prevent the images from being distorted. This will crop off a small bit of the edge of the images, which is a compromise you’ll have to make.  */
+  .portfolio img {
+    max-width: 100%;
+    flex: 1;
+    object-fit: cover;
+  }
+
+  .portfolio figcaption {
+    padding: 0.3em 0.8em;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: right;
+  }
+  .portfolio .featured {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+}

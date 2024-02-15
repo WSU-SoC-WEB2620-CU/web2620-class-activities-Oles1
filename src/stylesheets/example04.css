@@ -1,4 +1,4 @@
-/* TODO: Example 04 (Activity 5) CSS goes here */
+/* TODO: Example 04 (Activity 5) Final Submission */
 .centered {
   text-align: center;
   background-color: aliceblue;
@@ -20,6 +20,7 @@ body {
   max-width: 100%;
   object-fit: cover;
 }
+/* This specific is to help me better position the bird inside its grid area. I twist to object-fit: none so that I can reposition the image at will. */
 .bird {
   object-fit: none;
   object-position: 80% 50%;

@@ -3,7 +3,12 @@ html {
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
-  background-color: #fffdf5;
+  background-color: #fffdf5; /* This is the html bckgrd-color */
+  --background-color: #fffdf5;
+  --nav-background-color: #d1d0a3;
+  --cards-background-color: #b8e1ff;
+  --button-background-color: #1c77c3;
+  --body-background-color: #484538;
 }
 * {
   box-sizing: inherit;
@@ -15,7 +20,8 @@ nav > ul > li > a {
   /* border: 2px solid red; */
 }
 nav > ul > li {
-  background: #d5cbd5;
+  background: var(--nav-background-color); /*  --nav-background-color:#d5cbd5;*/
+  border-radius: 1rem;
   margin-left: 1rem;
   /* border: 2px solid green; */
   list-style-type: none;
@@ -30,7 +36,7 @@ h1 {
 .featured,
 .aside,
 .card {
-  background-color: #edbb97;
+  background-color: var(--cards-background-color); /* --cards-background-color */
   padding: 1rem;
   border-radius: 1rem;
 }
@@ -41,7 +47,7 @@ h1 {
   font-size: 4rem;
 }
 button {
-  background: #d86827;
+  background: var(--button-background-color); /* --button-background-color: #d86827; */
   padding: 0.75rem;
   border: none;
   border-radius: 0.5rem;
@@ -53,7 +59,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  background: #fef0e2;
+  background: var(--body-backround-color); /* --body-background-color: #fef0e2; */
 }
 
 header {

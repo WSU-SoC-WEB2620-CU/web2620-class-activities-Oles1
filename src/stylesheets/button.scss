@@ -1,0 +1,13 @@
+// buttons
+@mixin make-button {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  display: inline-block;
+  background: $basic-btnColor;
+  color: white;
+  border: 1px solid darken($basic-btnColor, 15%);
+  border-radius: 6px;
+  transition: background-color 0.35s ease-in-out;
+  width: 100%;
+}

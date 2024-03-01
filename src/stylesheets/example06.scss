@@ -1,4 +1,7 @@
 /* TODO: Example 06 (Activity 7) CSS goes here */
+@import "global";
+@import "alert";
+@import "button";
 * {
   box-sizing: border-box;
 }
@@ -8,22 +11,28 @@ body {
   font-size: 16px;
 }
 
-// buttons
 .button {
-  margin: .5em;
-  padding: .5em 1em;
-  font-size: 1.2rem;
-  display: inline-block;
-  background: #ccc;
-  color: white;
-  border: 1px solid darken(#ccc, 15%);
-  border-radius: 6px;
-  transition: background-color .35s ease-in-out;
-  width: 100%;
+  @include make-button;
+  &:hover {
+    background: lighten($basic-btnColor, 10%);
+  }
+  &.primary {
+    background-color: $primary-color;
+  }
+  &.secondary {
+    background-color: $secondary-color;
+  }
+  &.success {
+    background-color: $success-color;
+  }
+  &.error {
+    background-color: $error-color;
+  }
+  &.warning {
+    background-color: $warning-color;
+  }
 }
-.button:hover {
-  background: lighten(#ccc, 10%)
-}
+
 @media (min-width: 500px) {
   .button {
     width: calc(50% - 2em);
@@ -35,53 +44,31 @@ body {
   }
 }
 
-.button.primary {
-  //TODO: use color #007bff;
-}
-.button.secondary {
-  //TODO: use color #6c757d;
-}
-.button.success {
-  //TODO: use color #28a745;
-}
-.button.error {
-  //TODO: use color #dc3545
-}
-.button.primary {
-  //TODO: use color #ffc107
-}
-
 .alert {
-  margin: .5em;
-  padding: .5em 1em;
-  font-size: 1rem;
-  background: lighten(#ccc, 10%);
-  color: darken(#ccc, 30%);
-  border: 1px solid darken(#ccc, 15%);
-  border-radius: 6px;
-}
-.alert .title {
-  font-size: 1.5rem;
-  padding-bottom: .5rem;
-}
-.alert .title::after{
-  content: " ";
-  display: block;
-  padding-top: 5px;
-  border-bottom: 1px solid darken(#ccc, 15%);
-}
-.alert.primary {
-  //TODO: use color #007bff;
-}
-.alert.secondary {
-  //TODO: use color #6c757d;
-}
-.alert.success {
-  //TODO: use color #28a745;
-}
-.alert.error {
-  //TODO: use color #dc3545
-}
-.alert.primary {
-  //TODO: use color #ffc107
+  @include make-alert;
+  &.title {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    &::after {
+      content: " ";
+      display: block;
+      padding-top: 5px;
+      border-bottom: 1px solid darken($basic-btnColor, 15%);
+    }
+  }
+  &.primary {
+    background-color: $primary-color;
+  }
+  &.secondary {
+    background-color: $secondary-color;
+  }
+  &.success {
+    background-color: $success-color;
+  }
+  &.error {
+    background-color: $error-color;
+  }
+  &.warning {
+    background-color: $warning-color;
+  }
 }

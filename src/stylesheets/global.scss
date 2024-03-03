@@ -4,14 +4,4 @@ $secondary-color: #6c757d;
 $success-color: #28a745;
 $error-color: #dc3545;
 $warning-color: #ffc107;
-$basic-btnColor: #ccc;
-
-@mixin make-alert {
-  margin: 0.5em;
-  padding: 0.5em 1em;
-  font-size: 1rem;
-  background: lighten($basic-btnColor, 10%);
-  color: darken($basic-btnColor, 30%);
-  border: 1px solid darken($basic-btnColor, 15%);
-  border-radius: 6px;
-}
+$basic-btnColor: #676363;

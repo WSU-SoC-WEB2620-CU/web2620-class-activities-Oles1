@@ -10,26 +10,27 @@ body {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 16px;
 }
-
+/* using mixin with arguments */
 .button {
-  @include make-button;
+  @include make-button($basic-btnColor);
   &:hover {
-    background: lighten($basic-btnColor, 10%);
+    cursor: pointer;
+    @include make-button(darken($basic-btnColor, 10%));
   }
   &.primary {
-    background-color: $primary-color;
+    @include make-button($primary-color);
   }
   &.secondary {
-    background-color: $secondary-color;
+    @include make-button($secondary-color);
   }
   &.success {
-    background-color: $success-color;
+    @include make-button($success-color);
   }
   &.error {
-    background-color: $error-color;
+    @include make-button($error-color);
   }
   &.warning {
-    background-color: $warning-color;
+    @include make-button($warning-color);
   }
 }
 
@@ -45,7 +46,7 @@ body {
 }
 
 .alert {
-  @include make-alert;
+  @include make-alert($basic-btnColor);
   &.title {
     font-size: 1.5rem;
     padding-bottom: 0.5rem;
@@ -57,18 +58,18 @@ body {
     }
   }
   &.primary {
-    background-color: $primary-color;
+    @include make-alert($primary-color);
   }
   &.secondary {
-    background-color: $secondary-color;
+    @include make-alert($secondary-color);
   }
   &.success {
-    background-color: $success-color;
+    @include make-alert($success-color);
   }
   &.error {
-    background-color: $error-color;
+    @include make-alert($error-color);
   }
   &.warning {
-    background-color: $warning-color;
+    @include make-alert($warning-color);
   }
 }

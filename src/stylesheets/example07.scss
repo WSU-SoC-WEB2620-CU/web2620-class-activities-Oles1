@@ -106,7 +106,7 @@ $header-list: huge xlarge large medium small tiny;
     background-color: $basic-btnColor;
   }
 }
-
+/* Using @extend to apply apply previously used classes to these new ones */
 .new {
   @extend .button, .primary;
 }

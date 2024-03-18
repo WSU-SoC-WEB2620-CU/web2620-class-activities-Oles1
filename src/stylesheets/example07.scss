@@ -1,1 +1,124 @@
 /* TODO: Example 07 (Activity 8) CSS goes here */
+@import "global";
+@import "alert";
+@import "button";
+@function calc-font-size($num) {
+  @if unitless($num) {
+    @return 3 - ($num - 1) * 0.3;
+  } @else {
+    @debug "invalid argument. Must be unitless"; /* coudl use @warn or @error instead of @debug */
+    @return 0;
+  }
+}
+
+/* Creates a funciton for the color */
+@function calc-header-color($num, $color1, $color2) {
+  @return mix($color1, $color2, $num * 15%);
+}
+
+/* from 1 'to' 6 gives a difference result. h6 does not update to new declaration */
+// @for $num from 1 through 6 {
+//   h#{$num} {
+//     font-size: calc-font-size($num) * 1rem;
+//     color: calc-header-color($num, blue, green);
+//   }
+// }
+
+/* using a while loop through the h elements*/
+$num: 1; /* initiates the $num value */
+@while $num <=6 {
+  h#{$num} {
+    font-size: calc-font-size($num) * 1rem;
+    color: calc-header-color($num, red, green);
+  }
+  $num: $num + 1;
+}
+
+$header-list: huge xlarge large medium small tiny;
+
+/* Sometimes you want to write a style rule that’s only intended to be extended. In that case, you can use placeholder selectors, which look like class selectors that start with % instead of .. Any selectors that include placeholders aren’t included in the CSS output, but selectors that extend them are. Source: https://sass-lang.com/documentation/at-rules/extend/ */
+%header {
+  font-weight: bolder;
+  margin: 0.5em;
+
+  @at-root a#{&} {
+    text-decoration: none; /* You will see what it does when you check the compiles css file! */
+  }
+}
+
+@each $hdr in $header-list {
+  .header.#{$hdr} {
+    @extend %header;
+    @extend h#{index($header-list, $hdr)};
+  }
+}
+
+@mixin foo-style {
+  color: white;
+  padding: 5px;
+  margin: auto;
+}
+
+.foo {
+  @include foo-style;
+}
+
+.bar {
+  // @include foo-style;
+  // instead I extend
+  @extend .foo; /* I use the foo style here */
+}
+
+.button .interior .small-icon {
+  width: 10px;
+  color: black;
+  // width: 150px;
+}
+.side {
+  .top,
+  .middle,
+  .bottom {
+    .sign-in,
+    .register {
+      @extend .small-icon; /* You will see what it does when you check the compiles css file! */
+    }
+  }
+}
+
+.button {
+  @include make-button($basic-btnColor);
+  &.primary {
+    background-color: $primary-color;
+  }
+  &.secondary {
+    background-color: $secondary-color;
+  }
+  &.success {
+    background-color: $success-color;
+  }
+  &.error {
+    background-color: $error-color;
+  }
+  &.warning {
+    background-color: $warning-color;
+  }
+  &.basic {
+    background-color: $basic-btnColor;
+  }
+}
+
+.new {
+  @extend .button, .primary;
+}
+.edit {
+  @extend .button, .secondary;
+}
+.approve {
+  @extend .button, .success;
+}
+.deny {
+  @extend .button, .error;
+}
+.warn {
+  @extend .button, .warning;
+}

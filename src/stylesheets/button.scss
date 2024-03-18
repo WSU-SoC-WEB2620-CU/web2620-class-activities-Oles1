@@ -5,9 +5,28 @@
   font-size: 1.2rem;
   display: inline-block;
   background: $basic-btnColor;
-  color: white;
+  color: black;
   border: 1px solid darken($basic-btnColor, 15%);
   border-radius: 6px;
   transition: background-color 0.35s ease-in-out;
   width: 100%;
+}
+
+.primary {
+  background-color: $primary-color;
+}
+.secondary {
+  background-color: $secondary-color;
+}
+.success {
+  background-color: $success-color;
+}
+.error {
+  background-color: $error-color;
+}
+.warning {
+  background-color: $warning-color;
+}
+.basic {
+  background-color: $basic-btnColor;
 }

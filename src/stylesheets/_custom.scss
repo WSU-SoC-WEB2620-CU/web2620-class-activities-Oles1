@@ -1,5 +1,6 @@
 $primary: purple;
 $secondary: orange;
+$light: lightgray;
 
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
@@ -9,7 +10,6 @@ $secondary: orange;
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
-// @import "custom";
 
 //optional
 @import "bootstrap/scss/buttons";
